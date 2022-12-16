@@ -70,25 +70,25 @@ declare module 'react-native-callkeep' {
   };
 
   export default class RNCallKeep {
-    static getInitialEvents(): Promise<Array<Object>>
+    static getInitialEvents(): Promise<Array<Object>>;
 
-    static clearInitialEvents(): void
+    static clearInitialEvents(): void;
 
-    static addEventListener(type: Events, handler: (args: any) => void): void
+    static addEventListener(type: Events, handler: (args: any) => void): void;
 
-    static removeEventListener(type: Events): void
+    static removeEventListener(type: Events): void;
 
-    static setup(options: IOptions): Promise<boolean>
+    static setup(options: IOptions): Promise<boolean>;
 
-    static hasDefaultPhoneAccount(): boolean
+    static hasDefaultPhoneAccount(): boolean;
 
-    static answerIncomingCall(uuid: string): void
+    static answerIncomingCall(uuid: string): void;
 
-    static registerPhoneAccount(options: IOptions): void
+    static registerPhoneAccount(options: IOptions): void;
 
-    static registerAndroidEvents(): void
+    static registerAndroidEvents(): void;
 
-    static unregisterAndroidEvents(): void
+    static unregisterAndroidEvents(): void;
 
     static displayIncomingCall(
       uuid: string,
@@ -96,23 +96,23 @@ declare module 'react-native-callkeep' {
       localizedCallerName?: string,
       handleType?: HandleType,
       hasVideo?: boolean,
-      options?: object,
-    ): void
+      options?: object
+    ): void;
 
     static startCall(
       uuid: string,
       handle: string,
       contactIdentifier?: string,
       handleType?: HandleType,
-      hasVideo?: boolean,
-    ): void
+      hasVideo?: boolean
+    ): void;
 
     static updateDisplay(
       uuid: string,
       displayName: string,
       handle: string,
-      options?: object,
-    ): void
+      options?: object
+    ): void;
 
     static checkPhoneAccountEnabled(): Promise<boolean>;
 
@@ -121,84 +121,92 @@ declare module 'react-native-callkeep' {
     /**
      * @description reportConnectedOutgoingCallWithUUID method is available only on iOS.
      */
-    static reportConnectedOutgoingCallWithUUID(uuid: string): void
+    static reportConnectedOutgoingCallWithUUID(uuid: string): void;
 
     /**
      * @description reportConnectedOutgoingCallWithUUID method is available only on iOS.
      */
-    static reportConnectingOutgoingCallWithUUID(uuid: string): void
+    static reportConnectingOutgoingCallWithUUID(uuid: string): void;
 
-    static reportEndCallWithUUID(uuid: string, reason: number): void
+    static reportEndCallWithUUID(uuid: string, reason: number): void;
 
-    static rejectCall(uuid: string): void
+    static rejectCall(uuid: string): void;
 
-    static endCall(uuid: string): void
+    static endCall(uuid: string): void;
 
-    static endAllCalls(): void
+    static endAllCalls(): void;
 
-    static setReachable(): void
+    static setReachable(): void;
 
     static setSettings(settings: Object): void;
 
     /**
      * @description isCallActive method is available only on iOS.
      */
-    static isCallActive(uuid: string): Promise<boolean>
+    static isCallActive(uuid: string): Promise<boolean>;
 
-    static getCalls(): Promise<object>
+    static getCalls(): Promise<
+      {
+        callUUID: string;
+        hasConnected: boolean;
+        hasEnded: boolean;
+        onHold: boolean;
+        outgoing: boolean;
+      }[]
+    >;
 
-    static getAudioRoutes(): Promise<void>
+    static getAudioRoutes(): Promise<void>;
 
-    static setAudioRoute: (uuid:string, inputName: string) => Promise<void>
+    static setAudioRoute: (uuid: string, inputName: string) => Promise<void>;
 
     /**
      * @description supportConnectionService method is available only on Android.
      */
-    static supportConnectionService(): boolean
+    static supportConnectionService(): boolean;
 
     /**
      * @description hasPhoneAccount method is available only on Android.
      */
-    static hasPhoneAccount(): Promise<boolean>
+    static hasPhoneAccount(): Promise<boolean>;
 
-    static hasOutgoingCall(): Promise<boolean>
+    static hasOutgoingCall(): Promise<boolean>;
 
     /**
      * @description setMutedCall method is available only on iOS.
      */
-    static setMutedCall(uuid: string, muted: boolean): void
+    static setMutedCall(uuid: string, muted: boolean): void;
 
     /**
      * @description toggleAudioRouteSpeaker method is available only on Android.
      * @param uuid
      * @param routeSpeaker
      */
-    static toggleAudioRouteSpeaker(uuid: string, routeSpeaker: boolean): void
+    static toggleAudioRouteSpeaker(uuid: string, routeSpeaker: boolean): void;
 
-    static setOnHold(uuid: string, held: boolean): void
+    static setOnHold(uuid: string, held: boolean): void;
 
-    static setConnectionState(uuid: string, state: number): void
+    static setConnectionState(uuid: string, state: number): void;
 
     /**
      * @descriptions sendDTMF is used to send DTMF tones to the PBX.
      */
-    static sendDTMF(uuid: string, key: string): void
+    static sendDTMF(uuid: string, key: string): void;
 
-    static checkIfBusy(): Promise<boolean>
+    static checkIfBusy(): Promise<boolean>;
 
-    static checkSpeaker(): Promise<boolean>
+    static checkSpeaker(): Promise<boolean>;
 
     /**
      * @description setAvailable method is available only on Android.
      */
-    static setAvailable(active: boolean): void
+    static setAvailable(active: boolean): void;
 
-    static setForegroundServiceSettings(settings: Object): void
+    static setForegroundServiceSettings(settings: Object): void;
 
-    static canMakeMultipleCalls(allow: boolean): void
+    static canMakeMultipleCalls(allow: boolean): void;
 
-    static setCurrentCallActive(callUUID: string): void
+    static setCurrentCallActive(callUUID: string): void;
 
-    static backToForeground(): void
+    static backToForeground(): void;
   }
 }
